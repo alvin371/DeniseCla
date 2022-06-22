@@ -14,6 +14,7 @@ class JabatanController extends Controller
     public function index()
     {
         //
+        return view('pages/dataJabatan/index');
     }
 
     /**

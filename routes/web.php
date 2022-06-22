@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AbsensiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
@@ -50,9 +51,9 @@ Route::patch('/jabatan/{id}', [JabatanController::class, 'update']);
 Route::delete('/jabatan/{id}', [JabatanController::class, 'delete']);
 
 // Routes Absensi
-Route::get('/absensi', [JabatanController::class, 'index']);
-Route::post('/absensi/in', [JabatanController::class, 'absensiIn']);
-Route::post('/absensi/out', [JabatanController::class, 'absensiOut']);
+Route::get('/absensi', [AbsensiController::class, 'index']);
+Route::post('/absensi/in', [AbsensiController::class, 'absensiIn']);
+Route::post('/absensi/out', [AbsensiController::class, 'absensiOut']);
 
 // Routes Data Penggajian
 Route::get('/payroll', [PayrollController::class, 'index']);

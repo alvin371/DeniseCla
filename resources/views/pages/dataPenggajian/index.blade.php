@@ -25,7 +25,7 @@
                 <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Data Karyawan</span>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Data Penggajian</span>
             </div>
         </li>
     </ol>
@@ -34,9 +34,9 @@
 <!-- <div class="row flex justify-end my-5">
     <div class="col-3 grid justify-items-end">
 
-        <button class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
+        <a href="#" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
             Create
-        </button>
+        </a>
     </div>
 </div> -->
 <div class="container mx-auto px-4">
@@ -53,13 +53,10 @@
                                             #
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Nama
+                                            Nama Karyawan
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Jabatan
-                                        </th>
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Status
+                                            Jumlah Gaji
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                             Action
@@ -73,15 +70,10 @@
                                             Mark
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Kasir
+                                            Rp. 19.000.000
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Active</button>
-                                        </td>
-                                        <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -90,15 +82,10 @@
                                             Jacob
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Kurir
+                                            Rp. 19.000.000
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Resign</button>
-                                        </td>
-                                        <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
                                         </td>
                                     </tr>
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
@@ -107,15 +94,10 @@
                                             Larry
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Office Boy
+                                            Rp. 19.000.000
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Inactive</button>
-                                        </td>
-                                        <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
                                         </td>
                                     </tr>
                                 </tbody>

@@ -14,6 +14,8 @@ class PayrollController extends Controller
     public function index()
     {
         //
+
+        return view('pages/dataPenggajian/index');
     }
 
     /**
