@@ -157,6 +157,10 @@
                     Leave Request
                 </a>
                 <!-- end link -->
+                <a href="/pinjaman" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
+                    <i class="fad fa-file-invoice-dollar text-xs mr-2"></i>
+                    Data Pinjaman
+                </a>
 
 
             </div>
