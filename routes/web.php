@@ -66,10 +66,10 @@ Route::get('/exportPDF', [PayrollController::class, 'exportPDF']);
 
 // Route Leave Request
 Route::get('/leave-request', [LeaveRequestController::class, 'index']);
+Route::get('/leave-request/create', [LeaveRequestController::class, 'create']);
 Route::post('/leave-request', [LeaveRequestController::class, 'store']);
-Route::get('/leave-request/{id}/', [LeaveRequestController::class, 'edit']);
-Route::patch('/leave-request/{id}', [LeaveRequestController::class, 'update']);
-Route::delete('/leave-request/{id}', [LeaveRequestController::class, 'delete']);
+Route::patch('/leave-request/approved/{id}/', [LeaveRequestController::class, 'approved']);
+Route::patch('/leave-request/rejected/{id}', [LeaveRequestController::class, 'rejected']);
 // Group Admin Routes
 
 // Group Owner Routes
