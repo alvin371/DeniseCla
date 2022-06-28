@@ -39,9 +39,10 @@ Route::patch('/profile/edit/{id}', [DashboardController::class, 'updateProfile']
 // Routes Data Karyawan
 Route::get('/karyawan', [KaryawanController::class, 'index']);
 Route::post('/karyawan', [KaryawanController::class, 'store']);
-Route::get('/karyawan/{id}/', [KaryawanController::class, 'edit']);
-Route::patch('/karyawan/{id}', [KaryawanController::class, 'update']);
-Route::delete('/karyawan/{id}', [KaryawanController::class, 'delete']);
+Route::get('/karyawan/detail/{id}/', [KaryawanController::class, 'show']);
+Route::get('/karyawan/edit/{id}/', [KaryawanController::class, 'edit']);
+Route::patch('/karyawan/update/{id}', [KaryawanController::class, 'update']);
+Route::delete('/karyawan/delete/{id}', [KaryawanController::class, 'delete']);
 
 // Routes Data Jabatan
 Route::get('/jabatan', [JabatanController::class, 'index']);

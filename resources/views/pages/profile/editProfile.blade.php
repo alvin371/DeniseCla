@@ -3,7 +3,7 @@
 <div class="container mx-auto px-4">
     <a href="/profiles" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-22">
-        <form action="/profiles/edit/{$user->ud}" method="post" enctype="multipart/form-data">
+        <form action="/profiles/edit/{{$user->id}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="flex mx-4 my-12">
