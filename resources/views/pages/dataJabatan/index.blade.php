@@ -34,9 +34,9 @@
 <div class="row flex justify-end my-5">
     <div class="col-3 grid justify-items-end">
 
-        <button class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
+        <a href="/jabatan/create" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
             Create
-        </button>
+        </a>
     </div>
 </div>
 <div class="container mx-auto px-4">
@@ -61,36 +61,22 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($jabatan as $data)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$loop->iteration}}</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Kasir
+                                            {{$data->jabatan}}
                                         </td>
                                         <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            <a href="/jabatan/{{$data->id}}" class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</a>
+                                            <form action="/jabatan/{{$data->id}}" method="post">
+                                                @method('delete')
+                                                @csrf
+                                                <button type="submit" class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Kurir
-                                        </td>
-                                        <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Office Boy
-                                        </td>
-                                        <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

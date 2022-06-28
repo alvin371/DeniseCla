@@ -45,10 +45,11 @@ Route::delete('/karyawan/{id}', [KaryawanController::class, 'delete']);
 
 // Routes Data Jabatan
 Route::get('/jabatan', [JabatanController::class, 'index']);
+Route::get('/jabatan/create', [JabatanController::class, 'create']);
 Route::post('/jabatan', [JabatanController::class, 'store']);
 Route::get('/jabatan/{id}/', [JabatanController::class, 'edit']);
 Route::patch('/jabatan/{id}', [JabatanController::class, 'update']);
-Route::delete('/jabatan/{id}', [JabatanController::class, 'delete']);
+Route::delete('/jabatan/{id}', [JabatanController::class, 'destroy']);
 
 // Routes Absensi
 Route::get('/absensi', [AbsensiController::class, 'index']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
 use Illuminate\Http\Request;
 
 class JabatanController extends Controller
@@ -14,7 +15,8 @@ class JabatanController extends Controller
     public function index()
     {
         //
-        return view('pages/dataJabatan/index');
+        $jabatan = Jabatan::all();
+        return view('pages/dataJabatan/index', compact('jabatan'));
     }
 
     /**
@@ -25,6 +27,7 @@ class JabatanController extends Controller
     public function create()
     {
         //
+        return view('pages/dataJabatan/create');
     }
 
     /**
@@ -36,6 +39,14 @@ class JabatanController extends Controller
     public function store(Request $request)
     {
         //
+        if ($request->jabatan === null) {
+            return redirect('jabatan');
+        } else {
+            $jabatan = new Jabatan();
+            $jabatan->jabatan = $request->jabatan;
+            $jabatan->save();
+            return redirect('jabatan');
+        }
     }
 
     /**
@@ -58,6 +69,9 @@ class JabatanController extends Controller
     public function edit($id)
     {
         //
+
+        $jabatan = Jabatan::find($id);
+        return view('pages/dataJabatan/edit', compact('jabatan'));
     }
 
     /**
@@ -70,6 +84,14 @@ class JabatanController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if ($request->jabatan === null) {
+            return redirect('jabatan');
+        } else {
+            $jabatan = Jabatan::find($id);
+            $jabatan->jabatan = $request->jabatan;
+            $jabatan->save();
+            return redirect('jabatan');
+        }
     }
 
     /**
@@ -81,5 +103,8 @@ class JabatanController extends Controller
     public function destroy($id)
     {
         //
+        $jabatan = Jabatan::find($id);
+        $jabatan->delete();
+        return redirect('jabatan');
     }
 }
