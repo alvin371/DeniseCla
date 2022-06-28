@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jabatan;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class KaryawanController extends Controller
@@ -14,7 +16,8 @@ class KaryawanController extends Controller
     public function index()
     {
         //
-        return view('pages/dataKaryawan/index');
+        $user = User::all();
+        return view('pages/dataKaryawan/index', compact('user'));
     }
 
     /**
@@ -47,6 +50,8 @@ class KaryawanController extends Controller
     public function show($id)
     {
         //
+        $user = User::find($id);
+        return view('pages/dataKaryawan/detail', compact('user'));
     }
 
     /**
@@ -58,6 +63,9 @@ class KaryawanController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        $jabatan = Jabatan::all();
+        return view('pages/dataKaryawan/edit', compact('user', 'jabatan'));
     }
 
     /**
@@ -70,6 +78,23 @@ class KaryawanController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+        $user = User::find($id);
+        $user->name = $request->name ? $request->name : $user->name;
+        $user->email = $request->email ? $request->email : $user->email;
+        $user->password = $request->password ? $request->password : $user->password;
+        $user->role = $request->role ? $request->role : $user->role;
+        $user->nip = $request->nip ? $request->nip : $user->nip;
+        $user->jenis_kelamin = $request->jenis_kelamin ? $request->jenis_kelamin : $user->jenis_kelamin;
+        $user->TTL = $request->TTL ? $request->TTL : $user->TTL;
+        $user->phone = $request->phone ? $request->phone : $user->phone;
+        $user->jabatan = $request->jabatan ? $request->jabatan : $user->jabatan;
+        $user->alamat = $request->alamat ? $request->alamat : $user->alamat;
+        $user->status = $request->status ? $request->status : $user->status;
+        $user->gaji = $request->gaji ? $request->gaji : $user->gaji;
+        $user->image = $request->image ? $request->file('image')->store('product-image') : $user->image;
+        $user->save();
+        return redirect('karyawan');
     }
 
     /**

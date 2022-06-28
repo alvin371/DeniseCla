@@ -1,9 +1,9 @@
 @extends('pages/dashboard/index')
 @section('content')
 <div class="container mx-auto px-4">
-    <a href="/karyawan" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
+    <a href="/profiles" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-22">
-        <form action="/karyawan/update/{{$user->id}}" method="post" enctype="multipart/form-data">
+        <form action="/profiles/edit/{{$user->id}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="flex mx-4 my-12">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col mx-5">
                     <label for="role" class="my-2 ">Role</label>
-                    <select name="role" id="role" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none ">
+                    <select name="role" id="role" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none " disabled>
                         <?php $role = $user->role; ?>
                         <option value="-">Only Admins Can Updated Role</option>
                         <option value="admin" <?php if ($role == 'admin') echo 'selected'; ?>>Admin</option>
@@ -33,7 +33,7 @@
             <div class="flex mx-4 my-2">
                 <div class="col mx-5">
                     <label for="nip" class="my-2">NIP</label>
-                    <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" placeholder="001" name='nip' value="{{$user->nip}}" />
+                    <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" placeholder="001" name='nip' disabled value="{{$user->nip}}" />
                 </div>
                 <div class="col mx-5">
                     <label for="jenis_kelamin" class="my-2">Jenis Kelamin</label>
@@ -57,13 +57,7 @@
             <div class="flex mx-4 my-2">
                 <div class="col mx-5">
                     <label for="jabatan" class="my-2">Jabatan</label>
-                    <select name="jabatan" id="jabatan" class="form-control block w-64 px-6 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                        <?php $jbtn = $user->jabatan ?>
-                        <option value="-">Choose Employee Jabatan</option>
-                        @foreach($jabatan as $jb)
-                        <option value="{{$jb->jabatan}}" <?php if ($jbtn == $jb->jabatan) echo 'selected'; ?>>{{$jb->jabatan}}</option>
-                        @endforeach
-                    </select>
+                    <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" placeholder="Kasir" name='jabatan' disabled value="{{$user->jabatan}}" />
                 </div>
                 <div class="col mx-5">
                     <label for="alamat" class="my-2">Alamat</label>
@@ -71,13 +65,9 @@
                 </div>
                 <div class=" col mx-5">
                     <label for="status" class="my-2">Status</label>
-                    <select name="status" id="status" class="form-control block w-64 px-6 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none">
-                        <?php $status = $user->status ?>
-                        <option value="-">Choose Employee Status</option>
-                        <option value="Active" <?php if ($status == 'Active') echo 'selected'; ?>>Active</option>
-                        <option value="Inactive" <?php if ($status == 'Inactive') echo 'selected'; ?>>Inactive</option>
-                        <option value="Resign" <?php if ($status == 'Resign') echo 'selected'; ?>>Resign</option>
-                    </select>
+                    <button class="block px-6 w-64 py-2 bg-red-600 border-2 border-red-400 text-white rounded-lg text-md hover:bg-red-700 hover:border-4 hover:border-red-600" disabled>Inactive</button>
+                    <!-- <button class="px-6 py-2 bg-gray-500 border-2 border-gray-400 text-white rounded-lg text-md hover:bg-gray-700 hover:border-4 hover:border-gray-600" disabled>Resigned</button>
+                    <button class="px-6 py-2 bg-green-600 border-2 border-green-400 text-white rounded-lg text-md hover:bg-green-700 hover:border-4 hover:border-green-600" disabled>Active</button> -->
                 </div>
                 <div class="col mx-5">
                     <label for="gaji" class="my-2">Gaji</label>
@@ -93,7 +83,7 @@
                     font-semibold
                     bg-violet-50 text-gray-500
                     hover:bg-violet-100
-                    " name="image"/>
+                    "/>
                 </label>
             </div>
             <div class="flex justify-center my-8">

@@ -34,7 +34,7 @@
 <div class="row flex justify-end my-5">
     <div class="col-3 grid justify-items-end">
 
-        <a href="#" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
+        <a href="/leave-request/create" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
             Create
         </a>
     </div>
@@ -76,81 +76,51 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($leave as $data)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            John Doe
+                                            {{$data->name}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Otto Mark
+                                            {{$data->approver}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Vacation to Bali
+                                            {{$data->leave_name}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            22-07-2022
+                                            {{$data->start}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            25-07-2022
+                                            {{$data->end}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            @if($data->status !=null)
+                                            @if($data->status == 'Rejected')
                                             <a class="text-white bg-red-400 px-4 py-2 rounded-lg">Rejected</a>
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a class="text-white bg-green-400 px-4 py-2 rounded-lg"><i class="fas fa-check"></i></a>
-                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg"><i class="fas fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            John Doe
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Otto Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Vacation to Bali
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            22-07-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            25-07-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg">Rejected</a>
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a class="text-white bg-green-400 px-4 py-2 rounded-lg"><i class="fas fa-check"></i></a>
-                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg"><i class="fas fa-times"></i></a>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            John Doe
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Otto Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Vacation to Bali
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            22-07-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            25-07-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                            @elseif($data->status == 'Approved')
                                             <a class="text-white bg-green-400 px-4 py-2 rounded-lg">Approved</a>
+                                            @endif
+                                            @else
+                                            <a class="text-gray-500 font-bold bg-gray-400 px-4 py-2 rounded-lg">Not Yet Decided</a>
+                                            @endif
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a class="text-white bg-green-400 px-4 py-2 rounded-lg"><i class="fas fa-check"></i></a>
-                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg"><i class="fas fa-times"></i></a>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex">
+                                            @if($data->status == null)
+                                            <form action="/leave-request/approved/{{$data->id}}" method="post">
+                                                @csrf
+                                                @method('patch')
+                                                <button type="submit" class="text-white bg-green-400 px-4 py-2 rounded-lg"><i class="fas fa-check"></i></button>
+                                            </form>
+                                            <form action="/leave-request/rejected/{{$data->id}}">
+                                                @csrf
+                                                @method('patch')
+                                                <button type="submit" class="text-white bg-red-400 px-4 py-2 rounded-lg" name="rejected"><i class="fas fa-times"></i></button>
+                                            </form>
+                                            @endif
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>

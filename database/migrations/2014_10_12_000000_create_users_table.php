@@ -27,7 +27,8 @@ class CreateUsersTable extends Migration
             $table->string('jabatan')->nullable();
             $table->string('alamat')->nullable();
             $table->string('status')->nullable();
-            $table->string('gaji')->nullable();
+            $table->integer('gaji')->nullable();
+            $table->text('image')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

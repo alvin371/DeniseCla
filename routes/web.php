@@ -39,16 +39,18 @@ Route::patch('/profile/edit/{id}', [DashboardController::class, 'updateProfile']
 // Routes Data Karyawan
 Route::get('/karyawan', [KaryawanController::class, 'index']);
 Route::post('/karyawan', [KaryawanController::class, 'store']);
-Route::get('/karyawan/{id}/', [KaryawanController::class, 'edit']);
-Route::patch('/karyawan/{id}', [KaryawanController::class, 'update']);
-Route::delete('/karyawan/{id}', [KaryawanController::class, 'delete']);
+Route::get('/karyawan/detail/{id}/', [KaryawanController::class, 'show']);
+Route::get('/karyawan/edit/{id}/', [KaryawanController::class, 'edit']);
+Route::patch('/karyawan/update/{id}', [KaryawanController::class, 'update']);
+Route::delete('/karyawan/delete/{id}', [KaryawanController::class, 'delete']);
 
 // Routes Data Jabatan
 Route::get('/jabatan', [JabatanController::class, 'index']);
+Route::get('/jabatan/create', [JabatanController::class, 'create']);
 Route::post('/jabatan', [JabatanController::class, 'store']);
 Route::get('/jabatan/{id}/', [JabatanController::class, 'edit']);
 Route::patch('/jabatan/{id}', [JabatanController::class, 'update']);
-Route::delete('/jabatan/{id}', [JabatanController::class, 'delete']);
+Route::delete('/jabatan/{id}', [JabatanController::class, 'destroy']);
 
 // Routes Absensi
 Route::get('/absensi', [AbsensiController::class, 'index']);
@@ -57,14 +59,17 @@ Route::post('/absensi/out', [AbsensiController::class, 'absensiOut']);
 
 // Routes Data Penggajian
 Route::get('/payroll', [PayrollController::class, 'index']);
+Route::get('/payroll/edit/{id}', [PayrollController::class, 'edit']);
+Route::patch('/payroll/update/{id}', [PayrollController::class, 'update']);
 Route::get('/payroll/print/{id}', [PayrollController::class, 'print']);
+Route::get('/exportPDF', [PayrollController::class, 'exportPDF']);
 
 // Route Leave Request
 Route::get('/leave-request', [LeaveRequestController::class, 'index']);
+Route::get('/leave-request/create', [LeaveRequestController::class, 'create']);
 Route::post('/leave-request', [LeaveRequestController::class, 'store']);
-Route::get('/leave-request/{id}/', [LeaveRequestController::class, 'edit']);
-Route::patch('/leave-request/{id}', [LeaveRequestController::class, 'update']);
-Route::delete('/leave-request/{id}', [LeaveRequestController::class, 'delete']);
+Route::patch('/leave-request/approved/{id}/', [LeaveRequestController::class, 'approved']);
+Route::patch('/leave-request/rejected/{id}', [LeaveRequestController::class, 'rejected']);
 // Group Admin Routes
 
 // Group Owner Routes

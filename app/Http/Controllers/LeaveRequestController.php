@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\LeaveRequest;
 use Illuminate\Http\Request;
+
+use function PHPUnit\Framework\returnSelf;
 
 class LeaveRequestController extends Controller
 {
@@ -14,7 +17,9 @@ class LeaveRequestController extends Controller
     public function index()
     {
         //
-        return view('pages/leaveRequest/index');
+
+        $leave = LeaveRequest::all();
+        return view('pages/leaveRequest/index', compact('leave'));
     }
 
     /**
@@ -25,6 +30,7 @@ class LeaveRequestController extends Controller
     public function create()
     {
         //
+        return view('pages/leaveRequest/create');
     }
 
     /**
@@ -36,6 +42,33 @@ class LeaveRequestController extends Controller
     public function store(Request $request)
     {
         //
+        $leave = new LeaveRequest();
+        $leave->name = $request->paned;
+        $leave->leave_name = $request->leave_name;
+        $leave->start = $request->start;
+        $leave->end = $request->end;
+        $leave->save();
+        return redirect('leave-request');
+    }
+    public function approved($id)
+    {
+        $leave = LeaveRequest::find($id);
+        $approver = auth()->user()->name;
+        $status = 'Approved';
+        $leave->approver = $approver;
+        $leave->status = $status;
+        $leave->update();
+        return redirect('leave-request');
+    }
+    public function rejected($id)
+    {
+        $leave = LeaveRequest::find($id);
+        $approver = auth()->user()->name;
+        $status = 'Rejected';
+        $leave->approver = $approver;
+        $leave->status = $status;
+        $leave->update();
+        return redirect('leave-request');
     }
 
     /**

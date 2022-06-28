@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,11 +11,20 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('pages/profile/dashboard');
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        return view('pages/profile/dashboard', compact('user'));
     }
 
     public function profile()
     {
-        return view('pages/profile/index');
+        $id = auth()->user()->id;
+        $user = User::find($id);
+        return view('pages/profile/index', compact('user'));
+    }
+    public function editProfile($id)
+    {
+        $user = User::find($id);
+        return view('pages/profile/editProfile', compact('user'));
     }
 }
