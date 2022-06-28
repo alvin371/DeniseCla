@@ -64,42 +64,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @foreach($user as $data)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
+                                            {{$data->name}}
+                                        </td>
+                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap" id="rupiah">
+                                            {{$data->gaji}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Rp. 19.000.000
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
+                                            <a href="/payroll/print/{{$data->id}}" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
+                                            <a href="/payroll/edit/{{$data->id}}" class="bg-red-400 hover:bg-red-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Masukkan/Ubah Gaji</a>
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Jacob
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Rp. 19.000.000
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Larry
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Rp. 19.000.000
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <a href="" class="bg-green-400 hover:bg-green-300 px-5 py-2 rounded-full cursor-pointer text-white font-bold">Cetak Slip Gaji</a>
-                                        </td>
-                                    </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -109,4 +88,18 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var getMoney = document.getElementById('rupiah');
+    // let yahoo = formatRupiah('Rp. ', rupiah.innerHTML);
+    // console.log(yahoo, "ini valuenya")
+    let intMoney = parseInt(getMoney.innerHTML)
+    const rupiah = (number) => {
+        return new Intl.NumberFormat("id-ID", {
+            style: "currency",
+            currency: "IDR"
+        }).format(number);
+    }
+    console.log(rupiah(intMoney))
+    getMoney.innerHTML = rupiah(intMoney)
+</script>
 @endsection

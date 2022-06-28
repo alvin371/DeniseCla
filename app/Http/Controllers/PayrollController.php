@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PayrollController extends Controller
 {
@@ -14,10 +16,20 @@ class PayrollController extends Controller
     public function index()
     {
         //
-
-        return view('pages/dataPenggajian/index');
+        $user = User::all();
+        return view('pages/dataPenggajian/index', compact('user'));
     }
 
+    public function print($id)
+    {
+        $user = User::find($id);
+        return view('pages/dataPenggajian/cetakSlipGaji', compact('user'));
+    }
+
+    public function exportPDF()
+    {
+        return 'berhasil';
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -59,6 +71,8 @@ class PayrollController extends Controller
     public function edit($id)
     {
         //
+        $user = User::find($id);
+        return view('pages/dataPenggajian/editGaji', compact('user'));
     }
 
     /**
@@ -71,6 +85,14 @@ class PayrollController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $user = User::find($id);
+        $gaji = $request->gaji;
+        DB::table('users')->where('id', $id)->update(
+            [
+                "gaji" => $gaji ? $gaji : $user->gaji,
+            ]
+        );
+        return redirect('/payroll');
     }
 
     /**

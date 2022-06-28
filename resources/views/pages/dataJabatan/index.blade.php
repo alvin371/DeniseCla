@@ -53,13 +53,7 @@
                                             #
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Nama
-                                        </th>
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                             Jabatan
-                                        </th>
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Status
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                             Action
@@ -70,16 +64,9 @@
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Mark
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             Kasir
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Active</button>
-                                        </td>
                                         <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
                                             <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
                                             <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
                                         </td>
@@ -87,16 +74,9 @@
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">2</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Jacob
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             Kurir
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Resign</button>
-                                        </td>
                                         <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
                                             <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
                                             <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
                                         </td>
@@ -104,16 +84,9 @@
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
                                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">3</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Larry
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             Office Boy
                                         </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            <button class="text-white bg-yellow-500 hover:bg-yellow-600 px-8 py-2 rounded-full">Inactive</button>
-                                        </td>
                                         <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
-                                            <button class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</button>
                                             <button class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</button>
                                             <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
                                         </td>

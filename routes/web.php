@@ -57,7 +57,10 @@ Route::post('/absensi/out', [AbsensiController::class, 'absensiOut']);
 
 // Routes Data Penggajian
 Route::get('/payroll', [PayrollController::class, 'index']);
+Route::get('/payroll/edit/{id}', [PayrollController::class, 'edit']);
+Route::patch('/payroll/update/{id}', [PayrollController::class, 'update']);
 Route::get('/payroll/print/{id}', [PayrollController::class, 'print']);
+Route::get('/exportPDF', [PayrollController::class, 'exportPDF']);
 
 // Route Leave Request
 Route::get('/leave-request', [LeaveRequestController::class, 'index']);

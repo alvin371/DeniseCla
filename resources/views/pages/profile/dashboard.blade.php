@@ -138,13 +138,13 @@
 
             <!-- info -->
             <div class="py-2 ml-10">
-                <h1 class="h6">Good Job, Mohamed!</h1>
-                <p class="text-white text-xs">You've finished all of your tasks for this week.</p>
+                <h1 class="h6">Good Job, {{$user->name}}</h1>
+                <p class="text-white text-xs">Let's make something good today!.</p>
 
                 <ul class="mt-4">
-                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Finish Dashboard Design</li>
-                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Fix Issue #74</li>
-                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i> Publish version 1.0.6</li>
+                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Submit your attendance</li>
+                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2 mb-2"></i> Do some task!</li>
+                    <li class="text-sm font-light"><i class="fad fa-check-double mr-2"></i> Have Fun!</li>
                 </ul>
             </div>
             <!-- end info -->
@@ -157,10 +157,6 @@
     <div class="flex flex-col">
 
         <!-- alert -->
-        <div class="alert alert-dark mb-6">
-            Hi! Wait A Minute . . . . . . Follow Me On Twitter
-            <a class="ml-2" target="_blank" href="https://twitter.com/MohamedSaid__">@moesaid</a>
-        </div>
         <!-- end alert -->
 
         <!-- charts -->
