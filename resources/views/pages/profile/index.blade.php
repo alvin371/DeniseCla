@@ -8,7 +8,7 @@
                     @if($user->image == null)
                     <div class="relative"><img alt="..." src="{{asset('img/user2.jpg')}}" class="shadow-xl rounded-full h-auto align-middle border-none w-48 mt-20"></div>
                     @else
-                    <div class="relative"><img alt="..." src="{{asset('storage/'.$user->image)}}" class="shadow-xl rounded-full h-auto align-middle border-none w-48 mt-20"></div>
+                    <div class="relative"><img alt="..." src="{{asset('storage/public/'.$user->image)}}" class="shadow-xl rounded-full h-auto align-middle border-none w-48 mt-20"></div>
                     @endif
                 </div>
             </div>
@@ -23,7 +23,6 @@
             <div class="mt-10 py-10 border-t border-slate-200 text-center">
                 <div class="flex flex-wrap justify-center">
                     <div class="w-full lg:w-9/12 px-4">
-                        <a href="#pablo" class="font-normal text-pink-500">Show more</a>
                         <a href="/profile/edit/{{$user->id}}" class="font-normal text-pink-500">Edit Profile</a>
                     </div>
                 </div>
