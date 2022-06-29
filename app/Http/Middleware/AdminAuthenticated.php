@@ -30,7 +30,7 @@ class AdminAuthenticated
             }
 
             // allow admin to proceed with request
-            else if ($user->hasRole('admin')) {
+            else if ($user->role == 'admin') {
                 return $next($request);
             }
         }
