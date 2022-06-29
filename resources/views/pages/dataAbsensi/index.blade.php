@@ -33,7 +33,9 @@
 
 <div class="row flex justify-center my-5">
     <div class="col-3 flex flex-nowrap">
-        <input type="text" placeholder="Keterangan..." class="w-full
+        <form action="/absensi" method="post">
+            @csrf
+            <input type="text" placeholder="Keterangan..." class="w-full
             border-[1.5px] border-form-stroke
             rounded-lg
             py-3
@@ -45,13 +47,17 @@
             focus:border-rose-300
             active:border-rose-300
             transition
-            disabled:bg-[#F5F7FD] disabled:cursor-default">
-        <a href="#" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 px-5 py-2 rounded-lg mx-2">
-            Absensi Masuk
-        </a>
-        <a href="#" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 px-5 py-2 rounded-lg mx-2">
-            Absensi Keluar
-        </a>
+            disabled:bg-[#F5F7FD] disabled:cursor-default" name="note">
+            <!-- <input type="text" id="btnOut" value=""> -->
+            <div class="flex">
+                <button type="submit" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 px-5 py-2 rounded-lg mx-2" name="btnIn" {{$info['btnIn']}} value="btnIn">
+                    Absensi Masuk
+                </button>
+                <button type="submit" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 px-5 py-2 rounded-lg mx-2" name="btnOut" {{$info['btnOut']}} value="btnOut">
+                    Absensi Keluar
+                </button>
+            </div>
+        </form>
     </div>
 </div>
 <div class="container mx-auto px-4">
@@ -83,51 +89,27 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @forelse($data_absen as $absen)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$loop->iteration}}</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            22-06-2022
+                                            {{$absen->date}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            08:23
+                                            {{$absen->time_in}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            17:55
+                                            {{$absen->time_out}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Mengepel Lantai, Membersihkan Gudang, Menata Rak
+                                            {{$absen->note}}
                                         </td>
                                     </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            23-06-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            07:43
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            16:21
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Membersihkan Bunga ES di Kulkas Ice Cream
-                                        </td>
+                                    @empty
+                                    <tr>
+                                        <td colspan="4"><b><i>TIDAK ADA DATA UNTUK DITAMPILKAN</i></b></td>
                                     </tr>
-                                    <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            24-06-2022
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            09:23
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            17:21
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            Menghitung Total Kembalian
-                                        </td>
-                                    </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>

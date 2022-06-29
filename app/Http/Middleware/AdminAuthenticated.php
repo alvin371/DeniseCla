@@ -23,10 +23,10 @@ class AdminAuthenticated
             $user = Auth::user();
 
             // if user is not admin take him to his dashboard
-            if ($user->hasRole('karyawan')) {
-                return redirect(route('dashboard'));
-            } else if ($user->hasRole('owner')) {
-                return redirect(route('dashboard'));
+            if ($user->role == 'karyawan') {
+                return redirect('dashboard');
+            } else if ($user->role == 'owner') {
+                return redirect('dashboard');
             }
 
             // allow admin to proceed with request

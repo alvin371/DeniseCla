@@ -94,12 +94,19 @@
     // console.log(yahoo, "ini valuenya")
     let intMoney = parseInt(getMoney.innerHTML)
     const rupiah = (number) => {
+        if (number === NaN) {
+            return "Gaji Belum Diisi"
+        }
         return new Intl.NumberFormat("id-ID", {
             style: "currency",
             currency: "IDR"
         }).format(number);
     }
-    console.log(rupiah(intMoney))
-    getMoney.innerHTML = rupiah(intMoney)
+    if (rupiah(intMoney) == 'RpNaN') {
+        getMoney.innerHTML = 'Gaji Belum dimasukkan'
+    } else {
+
+        getMoney.innerHTML = rupiah(intMoney)
+    }
 </script>
 @endsection

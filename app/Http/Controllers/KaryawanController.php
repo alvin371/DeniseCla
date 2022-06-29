@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Jabatan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class KaryawanController extends Controller
 {
@@ -82,7 +83,7 @@ class KaryawanController extends Controller
         $user = User::find($id);
         $user->name = $request->name ? $request->name : $user->name;
         $user->email = $request->email ? $request->email : $user->email;
-        $user->password = $request->password ? $request->password : $user->password;
+        $user->password = $request->password ? Hash::make($request->password) : $user->password;
         $user->role = $request->role ? $request->role : $user->role;
         $user->nip = $request->nip ? $request->nip : $user->nip;
         $user->jenis_kelamin = $request->jenis_kelamin ? $request->jenis_kelamin : $user->jenis_kelamin;
