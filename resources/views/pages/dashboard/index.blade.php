@@ -124,24 +124,30 @@
                 <p class="uppercase text-xs text-gray-600 mb-4 mt-4 tracking-wider">apps</p>
 
                 <!-- link -->
+                @if(auth()->user()->role == 'admin')
                 <a href="/payroll" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
                     <i class="fad fa-envelope-open-text text-xs mr-2"></i>
                     Data Penggajian
                 </a>
+                @endif
                 <!-- end link -->
 
                 <!-- link -->
+                @if(auth()->user()->role == 'admin')
                 <a href="/karyawan" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
                     <i class="fad fa-comments text-xs mr-2"></i>
                     Data Karyawan
                 </a>
+                @endif
                 <!-- end link -->
 
                 <!-- link -->
+                @if(auth()->user()->role == 'admin' || auth()->user()->role == 'owner')
                 <a href="/jabatan" class="mb-3 capitalize font-medium text-sm hover:text-teal-600 transition ease-in-out duration-500">
                     <i class="fad fa-shield-check text-xs mr-2"></i>
                     Data Jabatan
                 </a>
+                @endif
                 <!-- end link -->
 
                 <!-- link -->
