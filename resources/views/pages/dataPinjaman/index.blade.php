@@ -102,12 +102,12 @@
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex">
                                             @if((auth()->user()->role == 'admin') || (auth()->user()->role == 'owner'))
                                             @if($data->status == null)
-                                            <form action="/leave-request/approved/{{$data->id}}" method="post">
+                                            <form action="/pinjaman/approved/{{$data->id}}" method="post">
                                                 @csrf
                                                 @method('patch')
                                                 <button type="submit" class="text-white bg-green-400 px-4 py-2 rounded-lg"><i class="fas fa-check"></i></button>
                                             </form>
-                                            <form action="/leave-request/rejected/{{$data->id}}" method="post">
+                                            <form action="/pinjaman/rejected/{{$data->id}}" method="post">
                                                 @csrf
                                                 @method('patch')
                                                 <button type="submit" class="text-white bg-red-400 px-4 py-2 rounded-lg" name="rejected"><i class="fas fa-times"></i></button>
