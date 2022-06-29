@@ -23,12 +23,7 @@ class KaryawanAuthenticated
             $user = Auth::user();
 
             // if user is not admin take him to his dashboard
-            if ($user->hasRole('user')) {
-                return redirect(route('dashboard'));
-            }
-
-            // allow admin to proceed with request
-            else if ($user->hasRole('karyawan')) {
+            if ($user->hasRole('karyawan')) {
                 return $next($request);
             }
         }

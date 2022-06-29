@@ -37,31 +37,31 @@ Route::get('/profile/edit/{id}', [DashboardController::class, 'editProfile'])->m
 Route::patch('/profile/edit/{id}', [DashboardController::class, 'updateProfile'])->middleware(['auth']);
 
 // Routes Data Karyawan
-Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware(['auth']);
+Route::get('/karyawan', [KaryawanController::class, 'index'])->middleware(['auth', 'admin', 'owner']);
 Route::post('/karyawan', [KaryawanController::class, 'store'])->middleware(['auth']);
-Route::get('/karyawan/detail/{id}/', [KaryawanController::class, 'show'])->middleware(['auth']);
-Route::get('/karyawan/edit/{id}/', [KaryawanController::class, 'edit'])->middleware(['auth']);
-Route::patch('/karyawan/update/{id}', [KaryawanController::class, 'update'])->middleware(['auth']);
-Route::delete('/karyawan/delete/{id}', [KaryawanController::class, 'delete'])->middleware(['auth']);
+Route::get('/karyawan/detail/{id}/', [KaryawanController::class, 'show'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/karyawan/edit/{id}/', [KaryawanController::class, 'edit'])->middleware(['auth', 'admin']);
+Route::patch('/karyawan/update/{id}', [KaryawanController::class, 'update'])->middleware(['auth', 'admin']);
+Route::delete('/karyawan/delete/{id}', [KaryawanController::class, 'delete'])->middleware(['auth', 'admin']);
 
 // Routes Data Jabatan
-Route::get('/jabatan', [JabatanController::class, 'index'])->middleware(['auth']);
-Route::get('/jabatan/create', [JabatanController::class, 'create'])->middleware(['auth']);
-Route::post('/jabatan', [JabatanController::class, 'store'])->middleware(['auth']);
-Route::get('/jabatan/{id}/', [JabatanController::class, 'edit'])->middleware(['auth']);
-Route::patch('/jabatan/{id}', [JabatanController::class, 'update'])->middleware(['auth']);
-Route::delete('/jabatan/{id}', [JabatanController::class, 'destroy'])->middleware(['auth']);
+Route::get('/jabatan', [JabatanController::class, 'index'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/jabatan/create', [JabatanController::class, 'create'])->middleware(['auth', 'admin', 'owner']);
+Route::post('/jabatan', [JabatanController::class, 'store'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/jabatan/{id}/', [JabatanController::class, 'edit'])->middleware(['auth', 'admin', 'owner']);
+Route::patch('/jabatan/{id}', [JabatanController::class, 'update'])->middleware(['auth', 'admin', 'owner']);
+Route::delete('/jabatan/{id}', [JabatanController::class, 'destroy'])->middleware(['auth', 'admin', 'owner']);
 
 // Routes Absensi
 Route::get('/absensi', [AbsensiController::class, 'index'])->middleware(['auth']);
 Route::post('/absensi', [AbsensiController::class, 'absen'])->middleware(['auth']);
 
 // Routes Data Penggajian
-Route::get('/payroll', [PayrollController::class, 'index'])->middleware(['auth']);
-Route::get('/payroll/edit/{id}', [PayrollController::class, 'edit'])->middleware(['auth']);
-Route::patch('/payroll/update/{id}', [PayrollController::class, 'update'])->middleware(['auth']);
-Route::get('/payroll/print/{id}', [PayrollController::class, 'print'])->middleware(['auth']);
-Route::get('/exportPDF', [PayrollController::class, 'exportPDF'])->middleware(['auth']);
+Route::get('/payroll', [PayrollController::class, 'index'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/payroll/edit/{id}', [PayrollController::class, 'edit'])->middleware(['auth', 'admin', 'owner']);
+Route::patch('/payroll/update/{id}', [PayrollController::class, 'update'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/payroll/print/{id}', [PayrollController::class, 'print'])->middleware(['auth', 'admin', 'owner']);
+Route::get('/exportPDF', [PayrollController::class, 'exportPDF'])->middleware(['auth', 'admin', 'owner']);
 
 // Route Leave Request
 Route::get('/leave-request', [LeaveRequestController::class, 'index'])->middleware(['auth']);
