@@ -3,7 +3,7 @@
 <div class="container mx-auto px-4">
     <a href="/profiles" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-22">
-        <form action="/profiles/edit/{{$user->id}}" method="post" enctype="multipart/form-data">
+        <form action="/profile/edit/{{$user->id}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('patch')
             <div class="flex mx-4 my-12">
@@ -75,7 +75,11 @@
                 </div>
             </div>
             <div class="flex mx-10 my-2">
+                @if($user->image === null)
                 <img src="{{asset('img/User.png')}}" alt="" class="w-24 h-auto border-2 border-gray-400 rounded-sm">
+                @else
+                <img src="{{asset('storage/public/'.$user->image)}}" alt="" class="w-24 h-auto border-2 border-gray-400 rounded-sm">
+                @endif
                 <label class="block file:text-red-500">
                     <input type="file" class="block w-full text-sm
                     mr-4 py-2 px-4
@@ -83,7 +87,8 @@
                     font-semibold
                     bg-violet-50 text-gray-500
                     hover:bg-violet-100
-                    "/>
+                    " name="image"
+                    />
                 </label>
             </div>
             <div class="flex justify-center my-8">
