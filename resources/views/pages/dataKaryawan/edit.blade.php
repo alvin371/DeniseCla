@@ -85,7 +85,11 @@
                 </div>
             </div>
             <div class="flex mx-10 my-2">
+                @if($user->image === null)
                 <img src="{{asset('img/User.png')}}" alt="" class="w-24 h-auto border-2 border-gray-400 rounded-sm">
+                @else
+                <img src="{{asset('storage/'.$user->image)}}" alt="" class="w-24 h-auto border-2 border-gray-400 rounded-sm">
+                @endif
                 <label class="block file:text-red-500">
                     <input type="file" class="block w-full text-sm
                     mr-4 py-2 px-4

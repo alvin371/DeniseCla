@@ -5,7 +5,11 @@
         <div class="px-6">
             <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                    @if($user->image == null)
                     <div class="relative"><img alt="..." src="{{asset('img/user2.jpg')}}" class="shadow-xl rounded-full h-auto align-middle border-none w-48 mt-20"></div>
+                    @else
+                    <div class="relative"><img alt="..." src="{{asset('storage/'.$user->image)}}" class="shadow-xl rounded-full h-auto align-middle border-none w-48 mt-20"></div>
+                    @endif
                 </div>
             </div>
             <div class="text-center mt-12">
