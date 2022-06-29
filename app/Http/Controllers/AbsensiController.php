@@ -48,7 +48,7 @@ class AbsensiController extends Controller
                 ->orderBy('date', 'desc')
                 ->paginate(20);
         } else {
-            $data_absen = Absensi::all()->orderBy('date', 'desc')->paginate(20);
+            $data_absen = Absensi::all();
         }
         return view('pages/dataAbsensi/index', compact('data_absen', 'info'));
     }

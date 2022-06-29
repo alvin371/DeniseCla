@@ -41,7 +41,7 @@
                             Gaji
                         </th>
                         <td class="px-6 py-4">
-                            19000000
+                            {{$user->gaji}}
                         </td>
                     </tr>
                     <tr class="bg-white border-t-2 border-b-2 border-gray-500 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">

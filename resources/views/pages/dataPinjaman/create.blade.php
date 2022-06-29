@@ -1,9 +1,9 @@
 @extends('pages/dashboard/index')
 @section('content')
 <div class="container mx-auto px-4">
-    <a href="/leave-request" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
+    <a href="/pinjaman" class="w-24 px-6 py-2 bg-gray-500 text-white border-4 border-gray-300 rounded-lg block my-6">Back</a>
     <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-22">
-        <form action="/leave-request" method="post" enctype="multipart/form-data">
+        <form action="/pinjaman" method="post" enctype="multipart/form-data">
             @csrf
             <div class="block mx-4 my-2">
                 <div class="flex col mx-5">
@@ -12,15 +12,15 @@
                         <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name="paned" id="name" value="{{auth()->user()->name}}" />
                     </div>
                     <div class="col mx-2">
-                        <label for="leave" class="w-full">Keterangan Cuti</label>
-                        <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name='leave_name' id="leave_name" />
+                        <label for="note" class="w-full">Keterangan Pinjaman</label>
+                        <input type="text" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name='note' id="note" />
                     </div>
                     <div class="col mx-2">
-                        <label for="start" class="w-full">Tanggal Mulai</label>
-                        <input type="date" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name='start' id="start" />
+                        <label for="money" class="w-full">Besaran Uang Pinjaman</label>
+                        <input type="number" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name='money' id="money" />
                     </div>
                     <div class="col mx-2">
-                        <label for="end" class="w-full">Tanggal Berakhir</label>
+                        <label for="end" class="w-full">Tanggal Pengembalian</label>
                         <input type="date" autocomplete="off" class="form-control block w-full px-4 py-2 text-md font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="exampleFormControlInput2" name='end' id="end" />
                     </div>
                 </div>

@@ -59,14 +59,14 @@
                                             Jumlah Gaji
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Action
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($user as $data)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$loop->iteration}}</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{$data->name}}
                                         </td>
@@ -92,21 +92,27 @@
     var getMoney = document.getElementById('rupiah');
     // let yahoo = formatRupiah('Rp. ', rupiah.innerHTML);
     // console.log(yahoo, "ini valuenya")
-    let intMoney = parseInt(getMoney.innerHTML)
-    const rupiah = (number) => {
-        if (number === NaN) {
-            return "Gaji Belum Diisi"
-        }
-        return new Intl.NumberFormat("id-ID", {
-            style: "currency",
-            currency: "IDR"
-        }).format(number);
-    }
-    if (rupiah(intMoney) == 'RpNaN') {
-        getMoney.innerHTML = 'Gaji Belum dimasukkan'
-    } else {
+    document.querySelectorAll('#rupiah').forEach(x => {
+        console.log(x.textContent)
 
-        getMoney.innerHTML = rupiah(intMoney)
-    }
+        let intMoney = parseInt(x.textContent)
+        console.log(intMoney, 'ini money')
+        const rupiah = (number) => {
+            if (number === NaN) {
+                return "Gaji Belum Diisi"
+            }
+            return new Intl.NumberFormat("id-ID", {
+                style: "currency",
+                currency: "IDR"
+            }).format(number);
+        }
+        console.log(rupiah(intMoney), 'ini after convert')
+        if (rupiah(intMoney) == 'RpNaN') {
+            getMoney.innerHTML = 'Gaji Belum dimasukkan'
+        } else {
+
+            x.innerHTML = rupiah(intMoney)
+        }
+    })
 </script>
 @endsection
