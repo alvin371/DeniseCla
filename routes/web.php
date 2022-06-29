@@ -6,6 +6,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\KaryawanController;
 use App\Http\Controllers\LeaveRequestController;
 use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\PinjamanController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
@@ -69,9 +70,13 @@ Route::get('/leave-request/create', [LeaveRequestController::class, 'create'])->
 Route::post('/leave-request', [LeaveRequestController::class, 'store'])->middleware(['auth']);
 Route::patch('/leave-request/approved/{id}/', [LeaveRequestController::class, 'approved'])->middleware(['auth']);
 Route::patch('/leave-request/rejected/{id}', [LeaveRequestController::class, 'rejected'])->middleware(['auth']);
-// Group Admin Routes
 
-// Group Owner Routes
 
+// Route Pinjaman
+Route::get('/pinjaman', [PinjamanController::class, 'index'])->middleware(['auth']);
+Route::get('/pinjaman/create', [PinjamanController::class, 'create'])->middleware(['auth']);
+Route::post('/pinjaman', [PinjamanController::class, 'store'])->middleware(['auth']);
+Route::patch('/pinjaman/approved/{id}/', [PinjamanController::class, 'approved'])->middleware(['auth']);
+Route::patch('/pinjaman/rejected/{id}', [PinjamanController::class, 'rejected'])->middleware(['auth']);
 // Group Karyawan Routes
 require __DIR__ . '/auth.php';

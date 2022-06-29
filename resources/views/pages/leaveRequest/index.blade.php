@@ -25,7 +25,7 @@
                 <svg class="w-6 h-6 text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
                 </svg>
-                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Leave Request</span>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2 dark:text-gray-400">Pengajuan Cuti</span>
             </div>
         </li>
     </ol>
@@ -35,7 +35,7 @@
     <div class="col-3 grid justify-items-end">
 
         <a href="/leave-request/create" class="btn-shadow mr-6 lg:mr-0 lg:mb-6 w-32">
-            Create
+            Tambah
         </a>
     </div>
 </div>
@@ -53,37 +53,31 @@
                                             #
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Employee
+                                            Nama Karyawan
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Approver
+                                            Keterangan Cuti
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Leave Name
+                                            Tanggal Mulai
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Start Date
-                                        </th>
-                                        <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            End Date
+                                            Tanggal Berakhir
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                                             Status
                                         </th>
                                         <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
-                                            Actions
+                                            Aksi
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($leave as $data)
                                     <tr class="bg-white border-b transition duration-300 ease-in-out hover:bg-gray-100">
-                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{{$loop->iteration}}</td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{$data->name}}
-                                        </td>
-                                        <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                            {{$data->approver}}
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             {{$data->leave_name}}
@@ -97,12 +91,12 @@
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                             @if($data->status !=null)
                                             @if($data->status == 'Rejected')
-                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg">Rejected</a>
+                                            <a class="text-white bg-red-400 px-4 py-2 rounded-lg">Ditolak</a>
                                             @elseif($data->status == 'Approved')
-                                            <a class="text-white bg-green-400 px-4 py-2 rounded-lg">Approved</a>
+                                            <a class="text-white bg-green-400 px-4 py-2 rounded-lg">Diterima</a>
                                             @endif
                                             @else
-                                            <a class="text-gray-500 font-bold bg-gray-400 px-4 py-2 rounded-lg">Not Yet Decided</a>
+                                            <a class="text-gray-500 font-bold bg-gray-400 px-4 py-2 rounded-lg">Belum diputuskan</a>
                                             @endif
                                         </td>
                                         <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap flex">
