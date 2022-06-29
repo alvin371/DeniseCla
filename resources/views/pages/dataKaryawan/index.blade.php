@@ -88,7 +88,11 @@
                                         <td scope="col" class="text-sm text-gray-900 font-light my-2 flex flex-nowrap">
                                             <a href="/karyawan/detail/{{$data->id}}" class="text-white btn-shadow px-6 py-2 rounded-full mx-2">Detail</a>
                                             <a href="/karyawan/edit/{{$data->id}}" class="text-white bg-green-500 hover:bg-green-600 px-6 py-2 rounded-full mx-2">Edit</a>
-                                            <button class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            <form action="/karyawan/delete/{{$data->id}}" method="post">
+                                                @csrf
+                                                @method('delete')
+                                                <button type="submit" class="text-white bg-red-500 hover:bg-red-600 px-6 py-2 rounded-full mx-2">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                     @endforeach
